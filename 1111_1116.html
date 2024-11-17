@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        header{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .gnb_nav_menu{
+            display: flex;
+            gap: 60px;
+        }
+        section{
+            display: flex;
+            background-color: brown;
+            min-height: 50;
+        }
+        aside{
+            width: 300px;
+            background-color: cadetblue;
+            flex: 1px;
+            padding: 20px;
+        }
+        .content h2{
+            margin-left: 20px;
+        }
+        footer{
+            display: flex;
+            background-color: chocolate;
+            align-items: center;
+            
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>logo</h1>
+        <nav>
+            <ul class="gnb_nav_menu">
+                <li>프론트</li>
+                <li>HTML</li>
+                <li>레이아웃</li>
+            </ul>
+            <button>로그인</button>
+        </nav>
+    </header>
+    <section>
+        <aside>
+            <div>
+                <p>aside circle</p>
+            </div>
+        </aside>
+    </section>
+    <footer>
+        <p>회사이름</p>
+        <address>서울 관악구 호암로 546</address>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기타 폼 요소들</title>
+    <style>
+        ul {
+            list-style: none;
+        }
+        .container{
+            width: 600px;
+            margin: 0 auto;
+        }
+        .title {
+            font-weight: bold;
+            width: 80px;
+            float: left;
+        }
+        fieldset {
+            margin: 15px 10px; 
+        }
+        fieldset legend {
+            font-weight: bold;
+            font-size: 18px;
+            color : purple;
+        }
+        ul li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <h1>상품 주문서</h1>
+    <form>
+        <fieldset>
+            <legend>개인정보</legend>
+            <ul>
+                <li>
+                    <label for="pro_name">이름</label>
+                    <input type="text" id="pro_name" required placeholder="여백없이 입력">
+                </li>
+                <li>
+                    <label for="pro_tel">연락처</label>
+                    <input type="tel" id="pro_tel" required placeholder="연락 가능한 번호">
+                </li>
+            </ul>
+        </fieldset>
+        <fieldset>
+            <legend>배송지 정보</legend>
+            <ul>
+                <li>
+                    <label for="pro_addr">주소</label>
+                    <input type="text" id="pro_addr" required placeholder="필수 값">
+                </li>
+                <li>
+                    <label for="pro_tel02">전화번호</label>
+                    <input type="tel" id="pro_tel02" required placeholder="필수 값">
+                </li>
+                <li>
+                    <label for="pro_memo">메모</label>
+                    <textarea id="pro_memo" cols="28" rows="2" placeholder="요청사항"></textarea>
+                </li>
+            </ul>
+        </fieldset>
+        <fieldset>
+            <legend>주문 정보</legend>
+            <ul>
+                <li>
+                    <label><input type="checkbox">뽕따</label>
+                    <label><input type="number" value="0" min="0" max="10">개</label>
+                </li>
+                <li>
+                    <label><input type="checkbox">빠삐코</label>
+                    <label><input type="number" value="0" min="0" max="10">개</label>
+                </li>
+                <li>
+                    <label><input type="checkbox">메로나</label>
+                    <label><input type="number" value="0" min="0" max="10">개</label>
+                </li>
+            </ul>
+        </fieldset>
+        <input type="submit" value="주문하기">
+        <input type="reset" value="다시작성">
+    </form>
+</div>
+</body>
+</html>

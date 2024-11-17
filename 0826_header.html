@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>시멘틱 태그_header태그 연습</title>
+    <style>
+        body {
+            margin: 0 auto;
+        }
+        header{
+            border : 2px solid black;
+            display: flex;
+            background-color: rgb(80, 112, 140);
+            justify-content: space-between;
+            padding: 20px 10%;
+            align-items: center;
+        }
+        header > nav > ul {
+            display: flex;
+            gap : 20px;
+        }
+        header > nav > ul > li {
+            list-style: none;
+            color:whitesmoke;
+        }
+        header > nav > ul > li > a {
+            text-decoration: none;
+            color:aliceblue;
+        }
+        header > nav > ul > li > a:hover {
+            font-weight: bolder;
+            color:aliceblue;
+        }
+        h1 {
+            color:aliceblue;
+            font-style: oblique;
+        }
+    </style>
+</head>
+<body>
+    <header>
+    <h1>Company H</h1>
+    <nav>
+        <ul>
+            <li><a href="">Home</li>
+            <li><a href="">About</li>
+            <li><a href="">Contact us</li>
+        </ul>
+        <form>
+            <input type="search">
+            <input type="submit">
+        </form>
+    </nav>
+    </header>
+</body>
+</html>

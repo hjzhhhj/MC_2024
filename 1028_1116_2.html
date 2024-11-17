@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가상 클래스_가상 요소</title>
+    <style>
+        li:hover{
+            background-color: hsl(120, 100, 50);
+        }
+        li:not(:hover){
+            background-color: gray;
+        }
+        /* li:nth-child(9){
+            background-color: blue;
+        } */
+        li:nth-child(4n+1){
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>This is #1</li>
+        <li>This is #2</li>
+        <li>This is #3</li>
+        <li>This is #4</li>
+        <li>This is #5</li>
+        <li>This is #6</li>
+        <li>This is #7</li>
+        <li>This is #8</li>
+        <li>This is #9</li>
+    </ul>9
+</body>
+</html>

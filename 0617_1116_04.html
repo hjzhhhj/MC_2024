@@ -1,0 +1,61 @@
+<!-- 작성자 : 1116 정희진 -->
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>입력폼_체크박스, 라디오버튼 등</title>
+    <style>
+        ul {
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <fieldset>
+            <legend>탕수육 취향?</legend>
+            <ul>
+            <li>
+                <label for="b_eat">부먹</label>
+                <input type="radio" id="b_eat" name="eat" value="">
+            </li>
+            <li>
+                <label for="t_eat">찍먹</label>
+                <input type="radio" id="t_eat" name="eat">
+            </li>
+        </ul>
+        </fieldset>
+        <fieldset>
+            <legend>좋아하는 과일?</legend>
+            <ul>
+            <li>
+                <label for="b_eat">사과</label>
+                <input type="checkbox" id="사과" name="eat" value="">
+            </li>
+            <li>
+                <label for="b_eat">포도</label>
+                <input type="checkbox" id="포도" name="eat" value="">
+            </li>
+            <li>
+                <label for="b_eat">딸기</label>
+                <input type="checkbox" id="딸기" name="eat" value="">
+            </li>
+            <li>
+                <label for="b_eat">키위</label>
+                <input type="checkbox" id="키위" name="eat" value="">
+            </li>
+            <li>
+                <label for="b_eat">파인애플</label>
+                <input type="checkbox" id="파인애플" name="eat" value="">
+            </li>
+        </ul>
+        </fieldset>
+        <br>
+        <button type="submit">제출하기</button>
+        <button type="reset">리셋하기</button>
+        <button type="button" onclick="alert('좋아하는 여름 과일!!')">버튼</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex 실습</title>
+    <style>
+        .container {
+            display: flex;
+            flex-wrap: nowrap;
+            flex-direction: row;
+            border: 6px solid black;
+            height: 90vh;
+            justify-content: space-between;
+        }
+        .box {
+            display: flex;
+            width: 150px;
+            height: 150px;
+            border: 1px solid black;
+            font-size: 8em;
+            border-radius: 15px;
+            text-align: center;
+            row-gap: 1em;
+            flex-direction: row;
+        }
+        #box1 {
+            background-color: crimson;
+        }
+        #box2 {
+            background-color: rgb(220, 180, 20);
+        }
+        #box3 {
+            background-color: rgb(20, 220, 100);
+        }
+        #box4 {
+            background-color: rgb(33, 20, 220);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box" id="box1">1</div>
+        <div class="box" id="box2">2</div>
+        <div class="box" id="box3">3</div>
+        <div class="box" id="box4">4</div>
+    </div>
+</body>
+</html>

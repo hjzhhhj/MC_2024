@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로또 번호 생성기</title>
+    <style>
+        /* 구글 폰트 적용, 굴림체 느낌의 Gugi 폰트 */
+        @import url('https://fonts.googleapis.com/css2?family=Gugi&display=swap');
+
+        /* 전체 레이아웃과 박스 모델 초기화 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 본문 스타일 */
+        body {
+            font-family: 'Gugi', sans-serif; /* 전체에 글꼴 적용 */
+            background-color: #e6f5d0; /* 연두색 배경 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333; /* 글씨 색은 진한 회색 */
+        }
+
+        /* 카드형 레이아웃, 상자 스타일 */
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            width: 350px;
+            text-align: center;
+            border: 5px solid #a3d95b; /* 상자 테두리 연두색 */
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            color: #417505; /* 진한 연두색 */
+        }
+
+        /* 입력 필드 스타일 */
+        input {
+            width: 60px;
+            padding: 8px;
+            margin: 5px;
+            border: 2px solid #a3d95b;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 0.5em;
+            color: #333;
+            background-color: #f4fbdc;
+            font-family: 'Gugi', sans-serif; /* 글꼴 적용 */
+        }
+
+        /* 버튼 스타일 */
+        button {
+            margin: 15px 0;
+            padding: 10px 20px;
+            font-size: 1.1em;
+            background-color: #a3d95b;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+            font-family: 'Gugi', sans-serif; /* 글꼴 적용 */
+        }
+
+        button:hover {
+            background-color: #90c057; /* 버튼 호버 시 더 짙은 연두색 */
+        }
+
+        /* 메시지 스타일 */
+        .message {
+            margin-top: 15px;
+            font-size: 1.1em;
+            color: #333;
+            font-family: 'Gugi', sans-serif; /* 글꼴 적용 */
+            display: none; /* 초기에는 숨김 */
+            background-color: #dfffd6; /* 연두색 배경 */
+            border: 1px solid #a3d95b;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 20px 0; /* 위 아래 여백 추가 */
+        }
+
+        /* 입력 필드의 스타일 개선 */
+        input[type="number"] {
+            width: 60px;
+            font-size: 1.2em;
+            text-align: center;
+            margin-bottom: 10px;
+            font-family: 'Gugi', sans-serif; /* 글꼴 적용 */
+        }
+
+        /* Placeholder 스타일 적용 */
+        input::placeholder {
+            color: #999; /* 연한 색상으로 표시 */
+            font-family: 'Gugi', sans-serif; /* 글꼴 적용 */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>로또 번호 생성기</h1>
+        
+        <!-- 번호 입력 섹션 -->
+        <div class="input-section">
+            <h2>번호 입력</h2>
+            <!-- 각 번호를 입력받을 input 필드 -->
+            <input type="number" id="num1" placeholder="1~45" min="1" max="45">
+            <input type="number" id="num2" placeholder="1~45" min="1" max="45">
+            <input type="number" id="num3" placeholder="1~45" min="1" max="45">
+            <input type="number" id="num4" placeholder="1~45" min="1" max="45">
+            <input type="number" id="num5" placeholder="1~45" min="1" max="45">
+            <input type="number" id="num6" placeholder="1~45" min="1" max="45">
+            <button id="inputButton">입력 완료</button>
+        </div>
+
+        <!-- 자동 번호 생성 섹션 -->
+        <div class="generate-section">
+            <h2>자동 번호 생성</h2>
+            <button id="generateButton">번호 생성</button>
+            <p id="autoNumbers">자동 생성 번호: </p>
+        </div>
+
+        <!-- 당첨 여부 확인 섹션 -->
+        <div class="check-section">
+            <h2>당첨 여부 확인</h2>
+            <button id="checkButton">당첨 확인</button>
+            <p id="result">결과: </p>
+        </div>
+
+        <!-- 번호 저장 및 불러오기 섹션 -->
+        <div class="save-section">
+            <button id="saveButton">번호 저장</button>
+            <button id="loadButton">번호 불러오기</button>
+        </div>
+
+        <!-- 메시지 표시용 DIV -->
+        <div class="message" id="messageBox"></div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const inputButton = document.getElementById("inputButton");
+            const generateButton = document.getElementById("generateButton");
+            const checkButton = document.getElementById("checkButton");
+            const saveButton = document.getElementById("saveButton");
+            const loadButton = document.getElementById("loadButton");
+            const messageBox = document.getElementById("messageBox");
+
+            let userNumbers = []; // 사용자가 입력한 번호 저장
+            let autoNumbers = []; // 자동 생성된 번호 저장
+
+            // 메시지 표시 함수
+            function showMessage(message) {
+                messageBox.textContent = message;
+                messageBox.style.display = 'block'; // 메시지 보이기
+                setTimeout(() => {
+                    messageBox.style.display = 'none'; // 일정 시간 후 숨기기
+                }, 3000); // 3초 후 메시지 숨기기
+            }
+
+            // 사용자가 번호를 입력
+            inputButton.addEventListener("click", function () {
+                userNumbers = []; // 기존 입력 초기화
+                for (let i = 1; i <= 6; i++) {
+                    const num = parseInt(document.getElementById(`num${i}`).value); // 입력된 값 가져오기
+                    // 번호가 1~45 범위 안에 있으며 중복되지 않을 경우 배열에 추가
+                    if (num >= 1 && num <= 45 && !userNumbers.includes(num)) {
+                        userNumbers.push(num);
+                    } else {
+                        showMessage("1~45 사이의 숫자를 입력하고 중복되지 않게 해주세요.");
+                        return;
+                    }
+                }
+                userNumbers.sort((a, b) => a - b); // 번호 오름차순 정렬
+                showMessage("입력한 번호: " + userNumbers.join(", "));
+            });
+
+            // 번호 자동 생성 이벤트
+            generateButton.addEventListener("click", function () {
+                autoNumbers = []; // 기존 생성된 번호 초기화
+                while (autoNumbers.length < 6) {
+                    const num = Math.floor(Math.random() * 45) + 1;
+                    if (!autoNumbers.includes(num)) {
+                        autoNumbers.push(num);
+                    }
+                }
+                autoNumbers.sort((a, b) => a - b); // 번호 오름차순 정렬
+                document.getElementById("autoNumbers").textContent = "자동 생성 번호: " + autoNumbers.join(", ");
+            });
+
+            // 당첨 여부 확인
+            checkButton.addEventListener("click", function () {
+                if (userNumbers.length === 6 && autoNumbers.length === 6) {
+                    const matched = userNumbers.filter(num => autoNumbers.includes(num));
+                    let resultText = `일치하는 번호: ${matched.length}개 (${matched.join(", ")})`;
+
+                    if (matched.length === 6) {
+                        resultText += " - 1등!";
+                    } else if (matched.length === 5) {
+                        resultText += " - 2등!";
+                    } else if (matched.length === 4) {
+                        resultText += " - 3등!";
+                    } else if (matched.length === 3) {
+                        resultText += " - 4등!";
+                    } else {
+                        resultText += " - 낙첨!";
+                    }
+
+                    document.getElementById("result").textContent = resultText;
+                } else {
+                    showMessage("번호를 입력하고 자동으로 번호를 생성해주세요.");
+                }
+            });
+
+            // 번호 저장 
+            saveButton.addEventListener("click", function () {
+                if (userNumbers.length === 6 && autoNumbers.length === 6) {
+                    localStorage.setItem("userNumbers", JSON.stringify(userNumbers));
+                    localStorage.setItem("autoNumbers", JSON.stringify(autoNumbers));
+                    showMessage("번호가 저장되었습니다.");
+                } else {
+                    showMessage("번호를 입력하고 자동으로 번호를 생성해주세요.");
+                }
+            });
+
+            // 번호 불러오기
+            loadButton.addEventListener("click", function () {
+                // 저장된 번호가 있는지 확인
+                const savedUserNumbers = localStorage.getItem("userNumbers");
+                const savedAutoNumbers = localStorage.getItem("autoNumbers");
+
+                if (savedUserNumbers && savedAutoNumbers) {
+                    userNumbers = JSON.parse(savedUserNumbers); // 저장된 사용자 번호 불러오기
+                    autoNumbers = JSON.parse(savedAutoNumbers); // 저장된 자동 번호 불러오기
+
+                    // 불러온 번호들을 화면에 표시
+                    showMessage("저장된 사용자 번호: " + userNumbers.join(", "));
+                    document.getElementById("autoNumbers").textContent = "자동 생성 번호: " + autoNumbers.join(", ");
+                } else {
+                    showMessage("저장된 번호가 없습니다.");
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+

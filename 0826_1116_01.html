@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>시멘틱 태그_header태그 연습</title>
+    <style>
+        body {
+            margin: 0 auto;
+        }
+        header {
+            display: flex;
+            background-color: aqua;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px; 
+        }
+        nav {
+            display: flex;
+            align-items: center; 
+            gap: 20px; 
+        }
+        nav > ul {
+            display: flex;
+            gap: 20px;
+        }
+        nav > ul > li > a {
+            text-decoration: none;
+        }
+        nav > ul > li > a:hover {
+            font-weight: bolder;
+            color: aliceblue;
+        }
+        form {
+            margin-left: 20px; 
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>logo</h1>
+        <nav>
+            <ul>
+                <li><a href="">프론트</a></li>
+                <li><a href="">html</a></li>
+                <li><a href="">레이아웃</a></li>
+            </ul>
+            <form>
+                <input type="submit" value="로그인">
+            </form>
+        </nav>
+    </header>
+</body>
+</html>

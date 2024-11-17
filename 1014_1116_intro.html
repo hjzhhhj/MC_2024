@@ -1,0 +1,67 @@
+<!-- 작성자 : 1116 정희진 -->
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intro_인트로 페이지</title>
+    <style>
+        @font-face {
+            font-family: 'MYHaemalgeunSangsang';
+            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-02@1.0/MYHaemalgeunSangsang.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .glass {
+            width: 100vw;
+            height: 100vh;
+            background-image: url(images/fall.jpg);
+            background-size: cover;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .pre {
+            width: 250px;
+            height: 250px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            -webkit-backdrop-filter: brightness(1.1) blur(20px);
+            backdrop-filter: brightness(1.1) blur(20px);
+            mix-blend-mode: overlay;
+            border-radius: 45%;
+        }
+
+        .pre>p {
+            font-size: 2rem;
+            font-family: 'MYHaemalgeunSangsang';
+            font-weight: 900;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="glass">
+        <div class="pre">
+            <p>나의 꿈은<br>
+                바람이<br>
+                되어서
+            </p>  
+        </div>
+        <div class="music">
+            <audio class="audio" controls autoplay muted loop>
+                <source src="images/better-day-186374.mp3" type="audio/mp3">
+            </audio>  
+        </div>
+    </div>
+</body>
+</html>

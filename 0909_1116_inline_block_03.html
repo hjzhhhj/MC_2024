@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>인라인 요소, 블록 요소</title>
+    <style>
+        .gallery {
+            display: inline-block;
+            border: 1px solid hsl(0, 0%, 60%);
+            width: 300px;
+        }
+        .gallery .description {
+            padding: 10px;
+            text-align: center;
+        }
+        .gallery:hover{
+            border: 2px solid hsl(0, 0%, 30%)
+        }
+        .gallery img{
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="gallery">
+        <a href="images/wildflower.jpg">
+            <img src="images/wildflower.jpg" alt="야생화">
+            <div class="description">야생화</div>
+        </a>
+    </div>
+    <div class="gallery">
+        <a href="images/1.jpg">
+            <img src="images/1.jpg" alt="유시진">
+            <div class="description">존잘남</div>
+        </a>
+    </div>
+    <div class="gallery">
+        <a href="images/2.jpg">
+            <img src="images/2.jpg" alt="빅보스">
+            <div class="description">이쁜이는 뒤를 돌아봅니다</div>
+        </a>
+    </div>
+</body>
+</html>

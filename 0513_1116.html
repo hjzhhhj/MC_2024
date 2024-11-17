@@ -1,0 +1,32 @@
+<!-- 작성자 : 1116 정희진 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 가상 클래스 선택자</title>
+    <style>
+        li:hover {font-size: 20px;}
+       li:hover {background-color: yellow;}
+       a:link {color:red;}
+       a:visited {color:blue;}
+       ul {list-style-type: none;}
+       li {text-decoration: none;}
+       a {text-decoration: none;}
+       h2::first-letter {color: red;}
+    </style>
+</head>
+<body>
+    <h2>1학기 과목</h2>
+    <hr>
+    <div>
+        <div>미디어콘텐츠 일반 학습내용</div>
+        <ul>
+            <a href="https://www.naver.com/"><li>HTML</li></a>
+            <a href="https://www.youtube.com/"><li><strong>CSS</strong></li></a>
+            <a href="https://www.daum.net/"><li>JAVA SCRIPT</li></a>
+        </ul>
+        <div>60점 이하는 F!</div>
+    </div>
+</body>
+</html>
