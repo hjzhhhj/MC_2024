@@ -5,34 +5,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        header{
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        header {
             display: flex;
             align-items: center;
             justify-content: space-between;
+            padding: 10px 20px;
+            background-color: #f4f4f4;
         }
-        .gnb_nav_menu{
+
+        .gnb_nav_menu {
             display: flex;
-            gap: 60px;
+            gap: 30px;
+            list-style: none;
         }
-        section{
+
+        .gnb_nav_menu li {
+            cursor: pointer;
+        }
+
+        header button {
+            padding: 5px 10px;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+        }
+
+        section {
             display: flex;
             background-color: brown;
-            min-height: 50;
+            min-height: 50px;
+            color: #fff;
         }
-        aside{
+
+        aside {
             width: 300px;
             background-color: cadetblue;
-            flex: 1px;
             padding: 20px;
         }
-        .content h2{
+
+        .content h2 {
             margin-left: 20px;
         }
-        footer{
+
+        footer {
             display: flex;
             background-color: chocolate;
             align-items: center;
-            
+            padding: 10px 20px;
+            color: #fff;
+        }
+
+        footer address {
+            margin-left: 10px;
+            font-style: normal;
         }
     </style>
 </head>
