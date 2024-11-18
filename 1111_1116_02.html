@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
     <style>
         *{
@@ -12,45 +12,83 @@
             margin: 0px;
         }
         header{
-            background-color: gray;
+            background-color: rgb(135, 135, 135);
             text-align: center;
             padding: 25px;
         }
         .navbar{
             display: flex;
-            background-color: hsl(175, 70, 70);
+            background-color: hsl(0, 0%, 0%);
             align-items: center;
             height: 30px;
+            gap: 50px;
+            justify-content: center;
+        }
+        .navbar > ul > li > a {
+            color: white;
+            text-decoration: none;
+        }
+        .navbar > ul{
+            display: flex;
+            gap: 150px;
+            list-style: none;
+            text-decoration: none;
+        }
+        .navbar > img{
+            max-width: 50px;
+            display: inline-block;
+        }
+        aside{
+            width: 20%;
+            float: left;
+        }
+        section{
+            width: 40%;
+            float: left;
+            padding: 10px;
+        }
+        article{
+            width: 40%;
+            float: left;
+        }
+        footer{
+            background-color: gray;
+            display: block;
+            clear: both;
+            text-align: center;
+            padding: 25px;
+        }
+        @media screen and (max-width:600px) {
+            aside,section,article{
+                width: 100%;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <h2>header</h2>
+        <h2>Header</h2>
     </header>
-    <nav>
+    <nav class="navbar">
+        <img src="images/cat-6645688_1280.png" alt="">
         <ul>
-            <li>홈</li>
-            <li>자기소개</li>
-            <li>포트폴리오</li>
-            <li>연락처</li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About Me</a></li>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#">Contact</a></li>
         </ul>
     </nav>
     <main>
         <aside>
-            <h2>THis is aside</h2>
-            <P>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint laborum cumque molestias dolore omnis accusamus cupiditate, excepturi laudantium voluptate sit natus, error assumenda culpa eos earum quisquam reiciendis eligendi magni!</P>
+            <h2>Aside</h2>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint laborum cumque molestias dolore omnis accusamus cupiditate, excepturi laudantium voluptate sit natus, error assumenda culpa eos earum quisquam reiciendis eligendi magni!</p>
         </aside>
         <section>
-            <h2>
-                THis is section
-            </h2>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto totam laboriosam aliquam voluptas quod? Nam assumenda doloribus cum ea quibusdam molestias placeat exercitationem consequatur, aliquam laboriosam, vero ipsum quos! Totam.
-            </p>
+            <h2>Section</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto totam laboriosam aliquam voluptas quod? Nam assumenda doloribus cum ea quibusdam molestias placeat exercitationem consequatur, aliquam laboriosam, vero ipsum quos! Totam.</p>
         </section>
         <article>
-            <h2>this is article</h2>
+            <h2>Article</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, officiis minima laudantium sed quis et beatae odit reiciendis soluta? Sed necessitatibus molestiae dicta tenetur provident ullam ea sint debitis ab.</p>
         </article>
     </main>
